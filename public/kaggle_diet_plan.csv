@@ -1,0 +1,31 @@
+Gender,Age,Name,Diabetes,Weight,Wanna Loose Weight,Height,BMI,Calories,Exercise,Workout,Meal Type,Diet
+F,20,Sona,N,64 kg,YES,162 cm,24.25,1760,Sedentary,Light Exercise,V,Balanced Diet
+M,20,Robot,N,67 kg,NO,160 cm,21.48,2200,Very Active,High intensity Exercise,NV,Energy boost diet
+M,35,John,Y,85 kg,YES,180 cm,26.23,3000,Sedentary,Moderate Exercise,V,Light Activity Fuel
+M,28,Emily,N,65 kg,YES,165 cm,24.87,2200,Sedentary,Light Exercise,V,Balanced Diet
+F,40,Michael,Y,75 kg,YES,170 cm,25.95,2000,Very Active,Sedentary Lifestyle,NV,Balanced Diet
+F,22,Sarah,N,60 kg,YES,155 cm,24.98,2600,Lightly Active,Sedentary Lifestyle,NV,Fitness Diet
+F,32,Daniel,Y,78 kg,YES,178 cm,24.64,2400,Moderate,Light Exercise,NV,Balanced Diet
+F,27,Jessica,Y,63 kg,NO,162 cm,23.96,1900,Very Active,Sedentary Lifestyle,V,Balanced Diet
+F,38,Ryan,Y,90 kg,NO,185 cm,26.3,3100,Super Active,Sedentary Lifestyle,NV,Balanced Diet
+F,24,Megan,Y,58 kg,NO,158 cm,23.25,2100,Moderate,Sedentary Lifestyle,V,Balanced Diet
+M,29,Ethan,N,80 kg,YES,176 cm,25.82,2200,Sedentary,High intensity Exercise,NV,Energy boost diet
+F,31,Olivia,Y,67 kg,NO,167 cm,24.05,2700,Moderate,Light Exercise,V,Fitness Diet
+M,26,Benjamin,N,72 kg,NO,182 cm,21.75,2300,Very Active,Sedentary Lifestyle,V,Balanced Diet
+F,33,Ava,N,68 kg,NO,160 cm,26.56,1900,Very Active,Sedentary Lifestyle,V,Balanced Diet
+F,23,Logan,N,77 kg,YES,178 cm,24.29,2800,Lightly Active,Moderate Exercise,V,Light Activity Fuel
+M,28,Grace,N,62 kg,NO,165 cm,22.77,2100,Lightly Active,Sedentary Lifestyle,NV,Balanced Diet
+M,36,Jackson,N,88 kg,YES,184 cm,25.99,2000,Moderate,Light Exercise,NV,Light Activity Fuel
+M,25,Lily,N,57 kg,NO,155 cm,23.77,2400,Sedentary,Moderate Exercise,V,Fitness Diet
+F,39,Aiden,N,82 kg,NO,177 cm,26.17,1900,Lightly Active,High intensity Exercise,NV, Fitness  Diet
+M,26,Zoey,Y,66 kg,NO,163 cm,24.8,2000,Moderate,Sedentary Lifestyle,NV,Balanced Diet
+F,34,Caleb,N,85 kg,YES,181 cm,26.02,3000,Very Active,Moderate Exercise,NV,Fitness Diet
+F,29,Sophia,N,61 kg,NO,159 cm,24.1,2200,Super Active,Light Exercise,V,Balanced Diet
+M,37,Wyatt,N,87 kg,NO,183 cm,25.96,2100,Super Active,High intensity Exercise,NV, Fitness  Diet
+F,24,Harper,N,59 kg,NO,157 cm,23.98,2600,Very Active,Light Exercise,V,Light Activity Fuel
+M,30,Mason,N,79 kg,NO,179 cm,24.63,2300,Moderate,Light Exercise,NV,Fitness Diet
+M,27,Addison,N,64 kg,NO,166 cm,23.23,2000,Sedentary,Moderate Exercise,NV,Energy boost diet
+M,35,Noah,N,86 kg,YES,180 cm,26.54,3100,Lightly Active,Moderate Exercise,V,Fitness Diet
+F,22,Isabella,N,56 kg,YES,161 cm,21.6,2000,Lightly Active,Sedentary Lifestyle,V,Balanced Diet
+F,31,Oliver,N,81 kg,YES,175 cm,26.45,2200,Moderate,Light Exercise,NV,Balanced Diet
+M,21,Ishan,N,63 kg ,YES,168 cm,22.32,2700,Very Active,Moderate Exercise,NV,Energy boost diet
