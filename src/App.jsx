@@ -1,8 +1,16 @@
+import { useState } from "react";
+
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <header className="bg-orange-500 text-white p-4 w-screen">
+        <header className="bg-orange-500 text-white p-4 w-full">
           <div className="container mx-auto flex justify-between items-center">
             <div className="flex items-center">
               <svg className="w-10 h-10 mr-2" viewBox="0 0 24 24" fill="currentColor">
@@ -10,8 +18,29 @@ function App() {
               </svg>
               <span className="text-2xl font-bold">FitLife</span>
             </div>
-            <nav>
-              <ul className="flex space-x-4">
+            <div className="block lg:hidden">
+              <button
+                onClick={toggleMenu}
+                className="focus:outline-none text-white"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <nav className={`lg:block ${isOpen ? "block" : "hidden"} lg:flex`}>
+              <ul className="flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0">
                 <li><a href="/" className="hover:underline">Home</a></li>
                 <li><a href="/about" className="hover:underline">About Us</a></li>
                 <li><a href="/input" className="hover:underline">BMI Calculator</a></li>
@@ -20,7 +49,7 @@ function App() {
             </nav>
           </div>
         </header>
-        <main className="flex-grow  mx-auto relative w-screen">
+        <main className="flex-grow mx-auto relative w-full">
           <div className="relative w-full h-full">
             <img
               src="https://plus.unsplash.com/premium_photo-1672576784416-0ec1ad75a061?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zml0bmVzcyUyMHdvbWFufGVufDB8fDB8fHww"
