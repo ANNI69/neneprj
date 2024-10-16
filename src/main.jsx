@@ -7,7 +7,6 @@ import ContactUs from './ContactUs.jsx'
 import Aboutus from './Aboutus.jsx'
 import InputPage from './InputPage.jsx'
 import ResultPage from './ResultPage.jsx'
-// import ContactUs from './ContactUs.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
