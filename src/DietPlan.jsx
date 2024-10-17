@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
+/* eslint-disable no-unused-vars */
+import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
+import { House } from 'lucide-react';
 
-const ResultPage = () => {
+const DietPlan = () => {
   const [dietPlan, setDietPlan] = useState(null);
   const [parsedUserData, setParsedUserData] = useState(null);
   const [category, setCategory] = useState('');
-
+  
   useEffect(() => {
     const userDataFromCookie = Cookies.get('userData');
     const parsedUserData = JSON.parse(userDataFromCookie);
@@ -81,20 +84,65 @@ const ResultPage = () => {
         }
       };
     }
-
+  
     setDietPlan(diet_plan);
   }, []);
+  
+  return (
+    <>
+      <div className="flex justify-center items-center min-h-screen">
+        <div>
+          <Link to="/" className="absolute top-4 left-4">
+            <House />
+          </Link>
+          {dietPlan ? (
+            <div className="bg-white p-6 rounded shadow-md w-80">
+              <h2 className="text-xl font-bold mb-4">Diet Plan</h2>
+              <Accordion title="Goals">
+                <p>{dietPlan.goals}</p>
+              </Accordion>
+              <Accordion title="Diet Recommendations">
+                <ul className="list-disc pl-5">
+                  {dietPlan.diet.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </Accordion>
+              <Accordion title="Sample Meals">
+                <ul className="list-disc pl-5">
+                  {Object.entries(dietPlan.sample_meals).map(
+                    ([meal, description], index) => (
+                      <li key={index}>
+                        <strong>{meal}:</strong> {description}
+                      </li>
+                    )
+                  )}
+                </ul>
+              </Accordion>
+            </div>
+          ) : (
+            <p>Loading diet plan...</p>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
+
+const Accordion = ({ title, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6">Your BMI is {parsedUserData?.bmi}</h1>
-      <h2 className="text-2xl font-semibold mb-4">Category: {category}</h2>
-
-      <a href="/diet-plan" className="text-blue-500 underline">View Diet Plan</a>
-      <a href="/exercise-plan" className="text-blue-500 underline">View Exercise Plan</a>
-      
+    <div className="w-full mb-4">
+      <button
+        className="w-full text-left bg-gray-200 p-2 rounded"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {title}
+      </button>
+      {isOpen && <div className="p-2 bg-gray-100 rounded">{children}</div>}
     </div>
   );
 };
 
-export default ResultPage;
+export default DietPlan;
