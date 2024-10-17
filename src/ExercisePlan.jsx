@@ -8,15 +8,37 @@ const ExercisePlan = () => {
   const [exercisePlan, setExercisePlan] = useState(null);
   const [parsedUserData, setParsedUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [bmi, setBmi] = useState(null);
+
+  useEffect(() => {
+    const cookieData = Cookies.get('userData');  // Assuming userData is stored as a stringified JSON
+    if (cookieData) {
+      const parsedData = JSON.parse(cookieData);
+      setParsedUserData(parsedData);
+      const plan = recommendationLogic(bmi);  // Get recommendations
+      setExercisePlan(plan);
+      setBmi(parsedData.bmi);
+      console.log(bmi);
+    }
+    setLoading(false);  // Once the parsing and logic are done
+
+  }, []);
 
   // Mock data for recommendations (you can customize this logic)
-  const recommendationLogic = (userData) => {
-    const { BMI, Age, Gender, Exercise, MealType } = userData;
-    
+  const recommendationLogic = () => {
+    let bmi = parsedUserData.bmi;
     // Based on the userData, recommend workout, diet, etc.
     let workout, diet, sampleMeals;
 
-    if (BMI > 30) {
+    if (bmi > 35) {
+      workout = "Very high-intensity cardio and strength training";
+      diet = ["Ketogenic diet", "High protein diet"];
+      sampleMeals = {
+      breakfast: "Scrambled eggs with avocado",
+      lunch: "Grilled steak with mixed greens",
+      dinner: "Roasted chicken with Brussels sprouts",
+      };
+    } else if (bmi > 30) {
       workout = "High-intensity cardio and strength training";
       diet = ["Very low carb diet", "High protein diet"];
       sampleMeals = {
@@ -24,7 +46,15 @@ const ExercisePlan = () => {
       lunch: "Grilled chicken breast with quinoa and steamed broccoli",
       dinner: "Baked salmon with asparagus",
       };
-    } else if (BMI > 25) {
+    } else if (bmi > 27.5) {
+      workout = "High-intensity interval training (HIIT)";
+      diet = ["Low carb diet", "Moderate protein diet"];
+      sampleMeals = {
+      breakfast: "Greek yogurt with berries",
+      lunch: "Tuna salad with mixed greens",
+      dinner: "Grilled shrimp with zucchini noodles",
+      };
+    } else if (bmi > 25) {
       workout = "High-intensity cardio";
       diet = ["Low carb diet", "Protein-rich diet"];
       sampleMeals = {
@@ -32,7 +62,15 @@ const ExercisePlan = () => {
       lunch: "Grilled chicken with salad",
       dinner: "Salmon with steamed vegetables",
       };
-    } else if (BMI > 18.5) {
+    } else if (bmi > 23) {
+      workout = "Moderate to high-intensity workout";
+      diet = ["Balanced diet with controlled portions"];
+      sampleMeals = {
+      breakfast: "Smoothie with spinach, banana, and protein powder",
+      lunch: "Quinoa salad with chickpeas and veggies",
+      dinner: "Grilled turkey with sweet potatoes",
+      };
+    } else if (bmi > 18.5) {
       workout = "Moderate workout";
       diet = ["Balanced diet"];
       sampleMeals = {
@@ -58,16 +96,7 @@ const ExercisePlan = () => {
   };
 
   // Fetch and parse userData from the cookie
-  useEffect(() => {
-    const cookieData = Cookies.get('userData');  // Assuming userData is stored as a stringified JSON
-    if (cookieData) {
-      const parsedData = JSON.parse(cookieData);
-      setParsedUserData(parsedData);
-      const plan = recommendationLogic(parsedData);  // Get recommendations
-      setExercisePlan(plan);
-    }
-    setLoading(false);  // Once the parsing and logic are done
-  }, []);
+
 
   return (
     <div className="flex justify-center items-center min-h-screen">
